@@ -1,0 +1,1863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Vivek Parmar | Android Application Developer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio of Vivek Parmar - Android Application Developer from Gujarat, India." />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <style>
+        :root {
+            --bg: #020617;
+            --bg-alt: #050816;
+            --card: #0b1220;
+            --accent: #22c55e;
+            --accent-alt: #22d3ee;
+            --accent-soft: rgba(34, 197, 94, 0.15);
+            --text-main: #f9fafb;
+            --text-muted: #9ca3af;
+            --border-soft: #1f2937;
+            --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.7);
+            --radius-xl: 18px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background:
+                radial-gradient(circle at top left, rgba(56,189,248,0.1), transparent 55%),
+                radial-gradient(circle at top right, rgba(34,197,94,0.12), transparent 60%),
+                radial-gradient(circle at bottom, rgba(79,70,229,0.15), transparent 60%),
+                #020617;
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        .wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 16px 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Background floating orbs */
+        .orb {
+            position: fixed;
+            border-radius: 999px;
+            filter: blur(40px);
+            opacity: 0.6;
+            z-index: 0;
+            pointer-events: none;
+            mix-blend-mode: screen;
+        }
+        .orb-1 {
+            width: 260px;
+            height: 260px;
+            background: rgba(34, 197, 94, 0.25);
+            top: -60px;
+            left: -40px;
+            animation: floatSlow 18s infinite alternate ease-in-out;
+        }
+        .orb-2 {
+            width: 280px;
+            height: 280px;
+            background: rgba(56, 189, 248, 0.25);
+            top: 40%;
+            right: -80px;
+            animation: floatSlow 22s infinite alternate ease-in-out;
+        }
+
+        @keyframes floatSlow {
+            0%   { transform: translate3d(0, 0, 0); }
+            50%  { transform: translate3d(20px, 40px, 0); }
+            100% { transform: translate3d(-10px, 60px, 0); }
+        }
+
+        /* Header / Nav */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(18px);
+            background: linear-gradient(to bottom, rgba(2,6,23,0.98), rgba(2,6,23,0.8), transparent);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-circle {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: conic-gradient(from 180deg, #22c55e, #22d3ee, #4c1d95, #22c55e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #020617;
+            font-size: 18px;
+            box-shadow: 0 0 25px rgba(34, 197, 94, 0.65);
+        }
+
+        .logo-text {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 24px;
+        }
+
+        nav li a {
+            font-size: 14px;
+            color: var(--text-muted);
+            position: relative;
+        }
+
+        nav li a:hover,
+        nav li a.active {
+            color: var(--text-main);
+        }
+
+        nav li a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #22c55e, #22d3ee);
+            transition: width 0.2s ease;
+        }
+
+        nav li a:hover::after,
+        nav li a.active::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Hero */
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+            gap: 24px;
+            align-items: center;
+            padding: 40px 0 32px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: -30px;
+            background: radial-gradient(circle at top, rgba(15,23,42,0.9), transparent 60%);
+            opacity: 0.7;
+            z-index: -1;
+        }
+
+        .hero-intro-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 3px 11px;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.98);
+            border: 1px solid rgba(148, 163, 184, 0.45);
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            box-shadow: 0 10px 30px rgba(15,23,42,0.8);
+        }
+
+        .hero-intro-badge span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            border-radius: 999px;
+            background: var(--accent-soft);
+            color: var(--accent);
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 40px);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(120deg, #22c55e, #22d3ee, #a855f7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: textGlow 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            0%   { text-shadow: 0 0 10px rgba(34,197,94,0.3); }
+            50%  { text-shadow: 0 0 24px rgba(56,189,248,0.4); }
+            100% { text-shadow: 0 0 18px rgba(168,85,247,0.4); }
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .hero-text {
+            font-size: 14px;
+            color: var(--text-muted);
+            max-width: 520px;
+            margin-bottom: 18px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .btn-primary,
+        .btn-ghost {
+            padding: 9px 16px;
+            border-radius: 999px;
+            font-size: 13px;
+            border: 1px solid transparent;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.18s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #22c55e, #22d3ee);
+            color: #020617;
+            font-weight: 600;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .btn-primary::after,
+        .btn-ghost::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 0 0, rgba(255,255,255,0.25), transparent 55%);
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: translateX(-40%) translateY(-40%);
+        }
+
+        .btn-primary:hover::after,
+        .btn-ghost:hover::after {
+            opacity: 1;
+            transform: translateX(0) translateY(0);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px) scale(1.01);
+            box-shadow: 0 20px 40px rgba(34, 197, 94, 0.25);
+        }
+
+        .btn-ghost {
+            background: rgba(15, 23, 42, 0.96);
+            border-color: rgba(148, 163, 184, 0.5);
+            color: var(--text-muted);
+        }
+
+        .btn-ghost:hover {
+            border-color: rgba(148, 163, 184, 0.9);
+            color: var(--text-main);
+            background: rgba(15, 23, 42, 0.98);
+            transform: translateY(-1px);
+        }
+
+        .social-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .social-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.18s ease;
+            background: radial-gradient(circle at 30% 0, #020617, #020617);
+        }
+
+        .social-icon:hover {
+            color: #22c55e;
+            border-color: #22c55e;
+            box-shadow: 0 10px 25px rgba(34,197,94,0.4);
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .hero-right {
+            display: flex;
+            justify-content: flex-end;
+            perspective: 1200px;
+        }
+
+        .profile-card {
+            width: 100%;
+            max-width: 360px;
+            background: radial-gradient(circle at top, #111827 0, #020617 55%);
+            border-radius: 26px;
+            padding: 18px 16px 18px;
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            border-radius: inherit;
+            padding: 1px;
+            background: conic-gradient(from 200deg, rgba(34,197,94,0.6), rgba(56,189,248,0.3), rgba(129,140,248,0.4), rgba(34,197,94,0.7));
+            -webkit-mask:
+                linear-gradient(#000 0 0) content-box,
+                linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0.65;
+        }
+
+        .profile-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .profile-avatar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .avatar-circle {
+            width: 46px;
+            height: 46px;
+            border-radius: 999px;
+            background: radial-gradient(circle at 30% 0, #22c55e 0, #22d3ee 55%, #4c1d95 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #020617;
+            font-size: 22px;
+        }
+
+        .avatar-info {
+            font-size: 13px;
+        }
+
+        .avatar-info .name {
+            font-weight: 600;
+        }
+
+        .avatar-info .role {
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        .status-pill {
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: rgba(22, 163, 74, 0.16);
+            color: #4ade80;
+            border: 1px solid rgba(34, 197, 94, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .profile-body {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .profile-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 12px 0;
+        }
+
+        .tag {
+            font-size: 11px;
+            padding: 4px 8px;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.98);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            color: var(--text-muted);
+        }
+
+        .profile-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11px;
+            margin-top: 10px;
+            color: var(--text-muted);
+        }
+
+        .highlight-number {
+            font-size: 14px;
+            font-weight: 600;
+            color: #a5b4fc;
+        }
+
+        /* Sections */
+        section {
+            padding: 24px 0;
+        }
+
+        .section-title {
+            font-size: 18px;
+            margin-bottom: 6px;
+        }
+
+        .section-subtitle {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 18px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.2fr);
+            gap: 18px;
+        }
+
+        .card {
+            background: rgba(15, 23, 42, 0.97);
+            border-radius: var(--radius-xl);
+            padding: 16px 16px 14px;
+            border: 1px solid var(--border-soft);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.55);
+        }
+
+        .card-title {
+            font-size: 14px;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .card p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .pill {
+            font-size: 11px;
+            padding: 4px 8px;
+            border-radius: 999px;
+            background: rgba(15,23,42,0.95);
+            border: 1px solid rgba(148,163,184,0.45);
+            color: var(--text-muted);
+        }
+
+        .what-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px;
+            margin-top: 6px;
+        }
+
+        .what-item {
+            background: rgba(15,23,42,0.98);
+            border-radius: 14px;
+            padding: 10px;
+            border: 1px solid var(--border-soft);
+            font-size: 12px;
+        }
+
+        .what-item h4 {
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+
+        .what-item p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Skills – NEW layout */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+        }
+
+        .skill-card {
+            border-radius: 18px;
+            border: 1px solid var(--border-soft);
+            padding: 12px 14px;
+            background: rgba(15, 23, 42, 0.98);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            box-shadow: 0 10px 24px rgba(0,0,0,0.5);
+            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(34, 197, 94, 0.7);
+            box-shadow: 0 18px 40px rgba(15,23,42,0.9);
+        }
+
+        .skill-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 999px;
+            background: radial-gradient(circle at 30% 0, #22c55e 0, #22d3ee 55%, #4c1d95 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: #020617;
+            flex-shrink: 0;
+        }
+
+        .skill-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .skill-title {
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .skill-text {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Timeline */
+        .timeline {
+            display: grid;
+            gap: 8px;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 10px auto;
+            gap: 10px;
+            font-size: 12px;
+        }
+
+        .timeline-marker {
+            display: flex;
+            justify-content: center;
+        }
+
+        .timeline-marker div {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #22c55e, #22d3ee);
+            margin-top: 5px;
+        }
+
+        .timeline-content {
+            border-radius: 12px;
+            padding: 8px 10px;
+            background: rgba(15,23,42,0.98);
+            border: 1px solid var(--border-soft);
+        }
+
+        .timeline-title {
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .timeline-meta {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 10px;
+        }
+
+        .project-card {
+            background: rgba(15,23,42,0.98);
+            border-radius: 16px;
+            padding: 12px 12px 10px;
+            border: 1px solid var(--border-soft);
+            font-size: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .project-title {
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .project-tag {
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 999px;
+            background: rgba(22,163,74,0.15);
+            color: #4ade80;
+            border: 1px solid rgba(34,197,94,0.3);
+        }
+
+        .project-meta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 4px;
+        }
+
+        .project-pill {
+            font-size: 10px;
+            padding: 3px 7px;
+            border-radius: 999px;
+            background: rgba(15,23,42,0.96);
+            border: 1px solid rgba(148,163,184,0.4);
+            color: var(--text-muted);
+        }
+
+        /* Contact */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
+            gap: 16px;
+        }
+
+        form {
+            display: grid;
+            gap: 10px;
+        }
+
+        label {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid var(--border-soft);
+            padding: 8px 10px;
+            font-size: 13px;
+            background: rgba(15,23,42,0.98);
+            color: var(--text-main);
+            outline: none;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #22c55e;
+            box-shadow: 0 0 0 1px rgba(34,197,94,0.3);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        .contact-info {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .contact-info-row {
+            margin-top: 10px;
+            display: grid;
+            gap: 8px;
+        }
+
+        /* Contact hover effects */
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: transform 0.18s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateX(4px);
+        }
+
+        .contact-icon {
+            width: 26px;
+            height: 26px;
+            border-radius: 999px;
+            background: rgba(15,23,42,0.98);
+            border: 1px solid rgba(148,163,184,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            transition: all 0.18s ease;
+        }
+
+        .contact-item:hover .contact-icon {
+            border-color: #22c55e;
+            color: #22c55e;
+            box-shadow: 0 10px 24px rgba(34,197,94,0.3);
+        }
+
+        .contact-item a {
+            position: relative;
+            transition: color 0.18s ease, transform 0.18s ease;
+        }
+
+        .contact-item a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg, #22c55e, #22d3ee);
+            transition: width 0.18s ease;
+        }
+
+        .contact-item:hover a {
+            color: #e5e7eb;
+            transform: translateX(1px);
+        }
+
+        .contact-item:hover a::after {
+            width: 100%;
+        }
+
+        /* NEW: contact actions row */
+        .contact-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 6px;
+        }
+
+        /* Toast */
+        #toast {
+            position: fixed;
+            left: 50%;
+            bottom: 24px;
+            transform: translateX(-50%) translateY(40px);
+            background: #111827;
+            color: #e5e7eb;
+            padding: 10px 18px;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 9999;
+        }
+
+        #toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Success overlay */
+        #success-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.75);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+            z-index: 9998;
+        }
+
+        #success-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .success-box {
+            background: #020617;
+            padding: 2rem 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
+        }
+
+        .checkmark {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            animation: pop 0.4s ease-out;
+            color: #22c55e;
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            70% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Scroll reveal base */
+        .reveal {
+            opacity: 0;
+            transform: translateY(26px);
+            transition:
+                opacity 0.7s ease-out,
+                transform 0.7s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 3D tilt cards */
+        .tilt-card {
+            transform-style: preserve-3d;
+            transition:
+                transform 0.18s ease-out,
+                box-shadow 0.18s ease-out,
+                border-color 0.18s ease-out;
+            will-change: transform;
+        }
+        .tilt-card.hovered {
+            box-shadow: 0 20px 45px rgba(15,23,42,0.9);
+            border-color: rgba(94, 234, 212, 0.7);
+        }
+
+        /* Resume icon animation */
+        .resume-icon {
+            animation: resumePulse 1.8s infinite ease-in-out;
+        }
+
+        @keyframes resumePulse {
+            0%   { transform: translateY(0); opacity: 1; }
+            50%  { transform: translateY(-3px); opacity: 0.8; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Floating resume button */
+        .floating-resume-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 20;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 9px 14px;
+            border-radius: 999px;
+            background: radial-gradient(circle at 0 0, #22d3ee, #22c55e);
+            color: #020617;
+            font-size: 13px;
+            font-weight: 600;
+            border: none;
+            box-shadow: 0 20px 45px rgba(34,197,94,0.45);
+            cursor: pointer;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+        }
+
+        .floating-resume-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 24px 55px rgba(34,197,94,0.6);
+        }
+
+        @media (max-width: 720px) {
+            .floating-resume-btn {
+                display: none; /* hide on small screens */
+            }
+        }
+
+        /* Resume preview section */
+        .resume-preview-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+            gap: 16px;
+        }
+
+        .resume-summary-list {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+
+        .resume-summary-list li {
+            margin-bottom: 4px;
+        }
+
+        .resume-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: rgba(15,23,42,0.98);
+            border: 1px solid rgba(148,163,184,0.4);
+            margin-bottom: 8px;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(148,163,184,0.3);
+            padding: 16px 0 10px;
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        footer .wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 860px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+            .hero-right {
+                justify-content: flex-start;
+            }
+            .grid-2,
+            .contact-wrapper,
+            .resume-preview-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 720px) {
+            nav ul {
+                position: absolute;
+                top: 56px;
+                right: 16px;
+                background: rgba(15,23,42,0.99);
+                border-radius: 14px;
+                border: 1px solid rgba(148,163,184,0.4);
+                padding: 10px 14px;
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                min-width: 170px;
+            }
+
+            nav ul.open {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .wrapper {
+                padding: 0 12px 40px;
+            }
+
+            .profile-card {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- floating orbs -->
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<header>
+    <div class="nav">
+        <div class="logo">
+            <div class="logo-circle">V</div>
+            <div class="logo-text">Vivek Parmar</div>
+        </div>
+        <nav>
+            <div class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></div>
+            <ul id="navMenu">
+                <li><a href="#about" class="active">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#resume-preview">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Floating resume button -->
+<a href="VIVEK-PARMAR-RESUEME.pdf" download class="floating-resume-btn" title="Download Resume">
+    <i class="fas fa-file-arrow-down resume-icon"></i>
+    Resume
+</a>
+
+<main class="wrapper">
+    <!-- HERO -->
+    <section class="hero">
+        <div class="reveal visible">
+            <div class="hero-intro-badge">
+                <span><i class="fas fa-code"></i></span>
+                <p>Final Year B.Tech (IT) • Android Application Developer</p>
+            </div>
+            <h1>Hi, I'm <span>Vivek Parmar</span></h1>
+            <p class="hero-subtitle">Android Application Developer (Fresher)</p>
+            <p class="hero-text">
+                I build native Android applications using Java, XML, SQLite and Firebase.
+                I enjoy designing clean UI, writing structured code and converting ideas into
+                real working apps for everyday use.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#projects" class="btn-primary">
+                    View My Apps <i class="fas fa-arrow-right"></i>
+                </a>
+
+                <!-- Hero resume button -->
+                <a href="VIVEK-PARMAR-RESUEME.pdf" class="btn-primary" download>
+                    Download Resume <i class="fas fa-file-arrow-down resume-icon"></i>
+                </a>
+
+                <a href="#contact" class="btn-ghost">
+                    Hire Me / Contact <i class="far fa-paper-plane"></i>
+                </a>
+            </div>
+
+            <div class="social-row">
+                <span>Connect with me</span>
+                <div class="social-icons">
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/parmar-vivek-670139348"
+                       target="_blank" rel="noopener"
+                       class="social-icon" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <!-- GitHub -->
+                    <a href="https://github.com/parmarvivek1623"
+                       target="_blank" rel="noopener"
+                       class="social-icon" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <!-- Email -->
+                    <a href="mailto:vp828227@gmail.com"
+                       class="social-icon" title="Email">
+                        <i class="far fa-envelope"></i>
+                    </a>
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/917567658495"
+                       target="_blank" rel="noopener"
+                       class="social-icon" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-right reveal tilt-card">
+            <div class="profile-card">
+                <div class="profile-top">
+                    <div class="profile-avatar">
+                        <div class="avatar-circle">V</div>
+                        <div class="avatar-info">
+                            <div class="name">Vivek Parmar</div>
+                            <div class="role">Android Application Developer</div>
+                        </div>
+                    </div>
+                    <div class="status-pill">
+                        <span class="dot">●</span> Open to Work
+                    </div>
+                </div>
+                <div class="profile-body">
+                    <p>
+                        Passionate Android developer from Khambhat, Anand (Gujarat, India)
+                        with experience in building academic and internship projects including
+                        Smart Farming IoT app, Expense Tracker, Fitness Tracker, Music Player
+                        and Ride-sharing prototype.
+                    </p>
+                    <div class="profile-tags">
+                        <span class="tag">Android Studio</span>
+                        <span class="tag">Java + XML</span>
+                        <span class="tag">SQLite / Firebase</span>
+                        <span class="tag">Clean UI</span>
+                    </div>
+                </div>
+                <div class="profile-footer">
+                    <div>
+                        <div class="highlight-number">04+</div>
+                        <div>Major Android Apps</div>
+                    </div>
+                    <div>
+                        <div class="highlight-number">B.Tech</div>
+                        <div>IT • Final Year</div>
+                    </div>
+                    <div>
+                        <div class="highlight-number">Gujarat</div>
+                        <div>India</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="reveal">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">Short intro about who I am and what I do.</p>
+
+        <div class="grid-2">
+            <div class="card tilt-card">
+                <div class="card-title">Android Developer & Problem Solver</div>
+                <p>
+                    I am a final year B.Tech (Information Technology) student who loves
+                    building Android applications from scratch. I enjoy working on both
+                    the UI and logic part of the app – from XML layouts to Java code,
+                    local storage and simple real-time features.
+                </p>
+                <p style="margin-top: 6px;">
+                    My current focus is on Android development, Firebase, databases,
+                    and improving my DSA & core programming skills. I am looking for
+                    opportunities where I can learn from experienced developers and
+                    contribute to real-world products.
+                </p>
+                <div class="pill-row">
+                    <span class="pill">Clean & Simple UI</span>
+                    <span class="pill">Curious & Fast Learner</span>
+                    <span class="pill">Team Collaboration</span>
+                    <span class="pill">Problem Solving</span>
+                </div>
+            </div>
+
+            <div class="card tilt-card">
+                <div class="card-title">What I’m Doing</div>
+                <div class="what-grid">
+                    <div class="what-item">
+                        <h4><i class="fas fa-mobile-alt"></i> Android Apps</h4>
+                        <p>Creating native Android apps using Java, XML and Android Studio.</p>
+                    </div>
+                    <div class="what-item">
+                        <h4><i class="fas fa-database"></i> App Data & Storage</h4>
+                        <p>Using SQLite, Firebase Realtime Database and SharedPreferences.</p>
+                    </div>
+                    <div class="what-item">
+                        <h4><i class="fas fa-paint-brush"></i> Mobile UI Design</h4>
+                        <p>Designing modern, simple and easy-to-use mobile screens.</p>
+                    </div>
+                    <div class="what-item">
+                        <h4><i class="fas fa-flask"></i> Learning & Experiments</h4>
+                        <p>Exploring Flutter, APIs, IoT integration and Linux / shell basics.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="reveal">
+        <h2 class="section-title">Skills</h2>
+        <p class="section-subtitle">Technologies and tools I work with.</p>
+
+        <div class="card tilt-card">
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">AS</div>
+                    <div class="skill-content">
+                        <div class="skill-title">Android Studio</div>
+                        <div class="skill-text">Activities, Intents, Services</div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">J</div>
+                    <div class="skill-content">
+                        <div class="skill-title">Java</div>
+                        <div class="skill-text">Core, OOP, Android APIs</div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">XML</div>
+                    <div class="skill-content">
+                        <div class="skill-title">XML Layout</div>
+                        <div class="skill-text">ConstraintLayout, RecyclerView, Custom UI</div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">DB</div>
+                    <div class="skill-content">
+                        <div class="skill-title">SQLite</div>
+                        <div class="skill-text">Local DB, CRUD</div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">FB</div>
+                    <div class="skill-content">
+                        <div class="skill-title">Firebase</div>
+                        <div class="skill-text">Realtime DB, Basics of Auth</div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">Git</div>
+                    <div class="skill-content">
+                        <div class="skill-title">Git &amp; GitHub</div>
+                        <div class="skill-text">Version Control, Collaboration</div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">C++</div>
+                    <div class="skill-content">
+                        <div class="skill-title">C++</div>
+                        <div class="skill-text">Programming Basics, Logic</div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">LX</div>
+                    <div class="skill-content">
+                        <div class="skill-title">Linux &amp; Shell</div>
+                        <div class="skill-text">Basic commands &amp; scripting</div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">UI</div>
+                    <div class="skill-content">
+                        <div class="skill-title">UI / UX</div>
+                        <div class="skill-text">Figma, Wireframing</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="reveal">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-subtitle">Some of my main Android and IoT projects.</p>
+
+        <div class="projects-grid">
+            <div class="project-card tilt-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">Smart Farming Solution</div>
+                        <div class="project-tag">IoT & Android • Firebase</div>
+                    </div>
+                </div>
+                <p>
+                    IoT-based Smart Farming Solution where sensors send data to Firebase and
+                    an Android app displays live field status, environment data and alerts
+                    to help automate and monitor agricultural activities.
+                </p>
+                <div class="project-meta-row">
+                    <span class="project-pill">ESP32 & Sensors</span>
+                    <span class="project-pill">Firebase RTDB</span>
+                    <span class="project-pill">Real-time UI</span>
+                </div>
+            </div>
+
+            <div class="project-card tilt-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">Expense Tracker App</div>
+                        <div class="project-tag">Android • Java & SQLite</div>
+                    </div>
+                </div>
+                <p>
+                    Android app to track daily expenses, categorize spending, manage wallet
+                    balance and visualize data using charts and a simple dashboard.
+                </p>
+                <div class="project-meta-row">
+                    <span class="project-pill">RecyclerView</span>
+                    <span class="project-pill">SQLite</span>
+                    <span class="project-pill">MPAndroidChart</span>
+                </div>
+            </div>
+
+            <div class="project-card tilt-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">Fitness Tracker App</div>
+                        <div class="project-tag">Android • Sensors</div>
+                    </div>
+                </div>
+                <p>
+                    Fitness app with step counting, distance & calorie calculation, daily
+                    water intake tracking and goals using mobile sensors and local storage.
+                </p>
+                <div class="project-meta-row">
+                    <span class="project-pill">Sensors</span>
+                    <span class="project-pill">SharedPreferences</span>
+                    <span class="project-pill">Dashboard UI</span>
+                </div>
+            </div>
+
+            <div class="project-card tilt-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">Music Player App</div>
+                        <div class="project-tag">Android • Media</div>
+                    </div>
+                </div>
+                <p>
+                    Local music player that scans songs from device storage, groups them
+                    by folder, shows album art, supports seek bar and background playback.
+                </p>
+                <div class="project-meta-row">
+                    <span class="project-pill">MediaPlayer</span>
+                    <span class="project-pill">Foreground Service</span>
+                    <span class="project-pill">Glide</span>
+                </div>
+            </div>
+
+            <div class="project-card tilt-card">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">Ride-sharing Prototype</div>
+                        <div class="project-tag">Android • Firebase</div>
+                    </div>
+                </div>
+                <p>
+                    Prototype ride-sharing app with login, user/driver flows, Google Maps,
+                    ride listing using RecyclerView and basic real-time ride updates.
+                </p>
+                <div class="project-meta-row">
+                    <span class="project-pill">Google Maps SDK</span>
+                    <span class="project-pill">Firebase</span>
+                    <span class="project-pill">RecyclerView</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESUME PREVIEW SECTION -->
+    <section id="resume-preview" class="reveal">
+        <h2 class="section-title">Resume Overview</h2>
+        <p class="section-subtitle">Quick snapshot of my resume. You can download the full PDF below.</p>
+
+        <div class="card tilt-card">
+            <div class="resume-preview-grid">
+                <div>
+                    <div class="resume-badge">
+                        <i class="fas fa-id-card"></i>
+                        Android Application Developer • Fresher
+                    </div>
+                    <p>
+                        I am a final year B.Tech (IT) student specializing in Android development.
+                        My resume highlights multiple Android applications (academic + internship),
+                        strong core programming skills (Java, C++), and hands-on work with SQLite,
+                        Firebase, sensors and clean UI design.
+                    </p>
+                    <ul class="resume-summary-list">
+                        <li>🎓 <strong>Education:</strong> B.Tech IT (Pursuing), Diploma IT</li>
+                        <li>📱 <strong>Expertise:</strong> Android Studio, Java, XML, SQLite, Firebase</li>
+                        <li>🧠 <strong>Strengths:</strong> Problem solving, clean UI, curiosity, teamwork</li>
+                        <li>🚀 <strong>Looking for:</strong> Android / Mobile App internships & fresher roles</li>
+                    </ul>
+                </div>
+                <div style="display:flex; flex-direction:column; justify-content:center; gap:10px;">
+                    <p style="font-size:12px; color:var(--text-muted);">
+                        Want to see full details (projects, skills, education, certifications)?
+                        Download my latest resume in PDF format.
+                    </p>
+                    <a href="VIVEK-PARMAR-RESUEME.pdf" download class="btn-primary" style="align-self:flex-start;">
+                        Download Resume PDF
+                        <i class="fas fa-file-arrow-down resume-icon"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESUME / EDUCATION + EXPERIENCE -->
+    <section id="resume" class="reveal">
+        <h2 class="section-title">Education & Experience</h2>
+        <p class="section-subtitle">Academic background and internship experience.</p>
+
+        <div class="grid-2">
+            <div class="card tilt-card">
+                <div class="card-title">Education</div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"><div></div></div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">B.Tech in Information Technology (Pursuing)</div>
+                            <div class="timeline-meta">
+                                A.D. Patel Institute of Technology<br />
+                                CVMU Hackathon 3.0 Participant
+                            </div>
+                            <p>
+                                Studying core subjects like Programming, Data Structures, DBMS, OS,
+                                and Software Engineering with focus on Android development.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"><div></div></div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Diploma in Information Technology</div>
+                            <div class="timeline-meta">
+                                IPCOWALA Institute of Engineering and Technology<br />
+                                Tech Fest • Tech Quiz • Debate
+                            </div>
+                            <p>
+                                Built strong fundamentals in programming, networking and software basics.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"><div></div></div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">HSC • Arts</div>
+                            <div class="timeline-meta">
+                                St. Xavier's Higher Secondary School
+                            </div>
+                            <p>From General Stream, Arts.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card tilt-card">
+                <div class="card-title">Internship & Training</div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"><div></div></div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Android Application Development Intern</div>
+                            <div class="timeline-meta">
+                                CODTECH IT Solution Pvt. Ltd • Remote, Hyderabad<br />
+                                05/2025 – 06/2025
+                            </div>
+                            <p>
+                                Worked on Android application development tasks, applying Java, XML,
+                                Firebase and Git in real-time project environment.
+                            </p>
+                            <p style="margin-top:4px;">
+                                Internship projects:
+                                Music Player, Expense Tracker, Ride-sharing prototype, Fitness Tracker.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker"><div></div></div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Certifications</div>
+                            <div class="timeline-meta">
+                                Android, Java, C++, Linux & more
+                            </div>
+                            <p>
+                                Android Application Developer Intern, Java Programming for Beginners,
+                                Android Application Development, Programming in C++, Computer & Programming,
+                                Introduction to Linux Command & Shell Scripting, CCC.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="reveal">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">Let’s discuss internships, fresher roles or app ideas.</p>
+
+        <div class="contact-wrapper">
+            <div class="card tilt-card">
+                <!-- NEW contact form with JS + Google Sheet + WhatsApp -->
+                <form id="contact-form">
+                    <div>
+                        <label for="name">Name</label>
+                        <input id="name" name="name" type="text" placeholder="Your Name" required />
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email" placeholder="you@example.com" required />
+                    </div>
+                    <div>
+                        <label for="subject">Subject</label>
+                        <input id="subject" name="subject" type="text" placeholder="Internship / Job / Project" required />
+                    </div>
+                    <div>
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+                    </div>
+
+                    <div class="contact-actions">
+                        <button type="submit" id="sendBtn" class="btn-primary">
+                            <span>Send Message</span>
+                            <i class="far fa-paper-plane"></i>
+                        </button>
+
+                        <button type="button" id="whatsappBtn" class="btn-ghost">
+                            <span>Contact via WhatsApp</span>
+                            <i class="fab fa-whatsapp"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="card contact-info tilt-card">
+                <div class="card-title">Let’s Connect</div>
+                <p>
+                    I am open to Android / Mobile App Development internships and fresher roles.
+                    If you think I can add value to your team or project, feel free to reach out
+                    using any of the options below.
+                </p>
+                <div class="contact-info-row">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="far fa-envelope"></i></div>
+                        <div>
+                            <div style="font-size: 12px; color: var(--text-main);">Email</div>
+                            <div>
+                                <a href="mailto:vp828227@gmail.com">vp828227@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                        <div>
+                            <div style="font-size: 12px; color: var(--text-main);">WhatsApp / Call</div>
+                            <div>
+                                <a href="https://wa.me/917567658495" target="_blank" rel="noopener">
+                                    (+91) 75676-58495
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-location-dot"></i></div>
+                        <div>
+                            <div style="font-size: 12px; color: var(--text-main);">Address</div>
+                            <div>Khambhat, Anand, Gujarat, India</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
+                        <div>
+                            <div style="font-size: 12px; color: var(--text-main);">LinkedIn</div>
+                            <div>
+                                <a href="https://www.linkedin.com/in/parmar-vivek-670139348"
+                                   target="_blank" rel="noopener">
+                                    parmar-vivek
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fab fa-github"></i></div>
+                        <div>
+                            <div style="font-size: 12px; color: var(--text-main);">GitHub</div>
+                            <div>
+                                <a href="https://github.com/parmarvivek1623" target="_blank" rel="noopener">
+                                    @parmarvivek1623
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast + Success overlay HTML -->
+        <div id="toast"></div>
+
+        <div id="success-overlay">
+            <div class="success-box">
+                <div class="checkmark">✔</div>
+                <p>Message Sent Successfully!</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="wrapper">
+        <div>© <span id="year"></span> Vivek Parmar. All rights reserved.</div>
+        <div>Built with ❤️ using HTML, CSS, JS & a lot of Android love.</div>
+    </div>
+</footer>
+
+<script>
+    // Mobile nav toggle
+    const navToggle = document.getElementById("navToggle");
+    const navMenu = document.getElementById("navMenu");
+    navToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("open");
+    });
+
+    document.querySelectorAll("#navMenu a").forEach(link => {
+        link.addEventListener("click", () => {
+            navMenu.classList.remove("open");
+        });
+    });
+
+    // Highlight active nav on scroll
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll("#navMenu a");
+
+    window.addEventListener("scroll", () => {
+        let currentId = "";
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= 110 && rect.bottom >= 130) {
+                currentId = section.id;
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === "#" + currentId) {
+                link.classList.add("active");
+            }
+        });
+    });
+
+    // Scroll reveal
+    const revealItems = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+    revealItems.forEach(item => {
+        if (!item.classList.contains("visible")) {
+            observer.observe(item);
+        }
+    });
+
+    // 3D tilt effect
+    const tiltCards = document.querySelectorAll(".tilt-card");
+    tiltCards.forEach(card => {
+        card.addEventListener("mousemove", (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const rotateY = ((x / rect.width) - 0.5) * 16;
+            const rotateX = ((y / rect.height) - 0.5) * -16;
+            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+            card.classList.add("hovered");
+        });
+
+        card.addEventListener("mouseleave", () => {
+            card.style.transform = "rotateX(0deg) rotateY(0deg) translateY(0)";
+            card.classList.remove("hovered");
+        });
+    });
+
+    // Set year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ===============================
+    // CONTACT FORM + GOOGLE SHEET + TOAST + WHATSAPP
+    // ===============================
+
+    // 🔗 Your Google Apps Script Web App URL (from Google Sheet → Apps Script → Deploy)
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzQB6GLCGxLyTzf0bHTQ4zStTqAdzq9MIbLatEke02vwtMdvxQRTEYZm2BvwW-6-JNY/exec"; // TODO: replace with your real URL
+
+    // 🔗 Your WhatsApp number with country code (no +)
+    const WHATSAPP_NUMBER = "+917567658495";
+
+    const contactForm = document.getElementById("contact-form");
+    const sendBtn = document.getElementById("sendBtn");
+    const whatsappBtn = document.getElementById("whatsappBtn");
+    const toast = document.getElementById("toast");
+    const successOverlay = document.getElementById("success-overlay");
+
+    function showToast(message) {
+        if (!toast) return;
+        toast.textContent = message;
+        toast.classList.add("show");
+        setTimeout(() => {
+            toast.classList.remove("show");
+        }, 3000);
+    }
+
+    function showSuccess() {
+        if (!successOverlay) return;
+        successOverlay.classList.add("active");
+        setTimeout(() => {
+            successOverlay.classList.remove("active");
+        }, 1800);
+    }
+
+    if (contactForm && sendBtn) {
+        contactForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // Disable button while sending
+            sendBtn.disabled = true;
+            const oldText = sendBtn.textContent;
+            sendBtn.textContent = "Sending...";
+
+            const formData = new FormData(contactForm);
+
+            fetch(SCRIPT_URL, {
+                method: "POST",
+                body: formData,
+            })
+                .then((res) => {
+                    try {
+                        return res.json();
+                    } catch (e) {
+                        return { status: "success" }; // fallback
+                    }
+                })
+                .then((data) => {
+                    if (data && data.status === "success") {
+                        showToast("Message sent successfully!");
+                        showSuccess();
+                        contactForm.reset();
+                    } else {
+                        showToast("Something went wrong. Please try again.");
+                    }
+                })
+                .catch((err) => {
+                    console.error(err);
+                    showToast("Error sending message. Please try again.");
+                })
+                .finally(() => {
+                    sendBtn.disabled = false;
+                    sendBtn.textContent = oldText;
+                });
+        });
+    }
+
+    // WhatsApp auto-message from form data
+    if (whatsappBtn) {
+        whatsappBtn.addEventListener("click", function () {
+            const name = document.getElementById("name")?.value || "";
+            const email = document.getElementById("email")?.value || "";
+            const subject = document.getElementById("subject")?.value || "";
+            const message = document.getElementById("message")?.value || "";
+
+            const textLines = [
+                "Hello, I visited your portfolio.",
+                "",
+                "Name: " + name,
+                "Email: " + email,
+                "Subject: " + subject,
+                "",
+                "Message:",
+                message
+            ];
+
+            const encoded = encodeURIComponent(textLines.join("\n"));
+            const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encoded;
+            window.open(url, "_blank");
+        });
+    }
+</script>
+</body>
+</html>

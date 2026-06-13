@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Portfolio of Vivek Parmar - Android Application Developer from Gujarat, India." />
 
-    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
     <style>
@@ -20,7 +18,7 @@
             --accent-alt: #22d3ee;
             --accent-soft: rgba(34, 197, 94, 0.15);
             --text-main: #f9fafb;
-            --text-muted: #9ca3af;
+            --text-muted: #a1a1aa; /* Lightened slightly for better readability */
             --border-soft: #1f2937;
             --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.7);
             --radius-xl: 18px;
@@ -51,7 +49,7 @@
         a { color: inherit; text-decoration: none; }
 
         .wrapper {
-            max-width: 1100px;
+            max-width: 1200px; /* Widened for better modern screen alignment */
             margin: 0 auto;
             padding: 0 16px 60px;
             position: relative;
@@ -106,7 +104,7 @@
             align-items: center;
             justify-content: space-between;
             padding: 12px 16px;
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
@@ -493,6 +491,7 @@
             display: grid;
             grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.2fr);
             gap: 18px;
+            align-items: start; /* Prevents cards from stretching vertically */
         }
 
         .card {
@@ -555,7 +554,7 @@
             color: var(--text-muted);
         }
 
-        /* Skills – NEW layout */
+        /* Skills */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -588,7 +587,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
             color: #020617;
             flex-shrink: 0;
@@ -613,7 +612,7 @@
         /* Timeline */
         .timeline {
             display: grid;
-            gap: 8px;
+            gap: 12px; /* Increased gap for better alignment */
         }
 
         .timeline-item {
@@ -638,7 +637,7 @@
 
         .timeline-content {
             border-radius: 12px;
-            padding: 8px 10px;
+            padding: 10px 12px;
             background: rgba(15,23,42,0.98);
             border: 1px solid var(--border-soft);
         }
@@ -651,24 +650,25 @@
         .timeline-meta {
             font-size: 11px;
             color: var(--text-muted);
+            margin-bottom: 4px;
         }
 
         /* Projects */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 10px;
+            gap: 12px;
         }
 
         .project-card {
             background: rgba(15, 23, 42, 0.98);
             border-radius: 16px;
-            padding: 12px 12px 10px;
+            padding: 14px 14px 12px;
             border: 1px solid var(--border-soft);
             font-size: 12px;
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 8px;
         }
 
         .project-header {
@@ -679,7 +679,7 @@
         }
 
         .project-title {
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 500;
         }
 
@@ -696,12 +696,12 @@
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
-            margin-top: 4px;
+            margin-top: auto;
         }
 
         .project-pill {
             font-size: 10px;
-            padding: 3px 7px;
+            padding: 4px 8px;
             border-radius: 999px;
             background: rgba(15,23,42,0.96);
             border: 1px solid rgba(148,163,184,0.4);
@@ -713,6 +713,7 @@
             display: grid;
             grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
             gap: 16px;
+            align-items: start;
         }
 
         form {
@@ -730,17 +731,18 @@
             width: 100%;
             border-radius: 12px;
             border: 1px solid var(--border-soft);
-            padding: 8px 10px;
+            padding: 10px 12px;
             font-size: 13px;
             background: rgba(15,23,42,0.98);
             color: var(--text-main);
             outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
 
         input:focus,
         textarea:focus {
             border-color: #22c55e;
-            box-shadow: 0 0 0 1px rgba(34,197,94,0.3);
+            box-shadow: 0 0 0 2px rgba(34,197,94,0.2);
         }
 
         textarea {
@@ -754,16 +756,16 @@
         }
 
         .contact-info-row {
-            margin-top: 10px;
+            margin-top: 12px;
             display: grid;
-            gap: 8px;
+            gap: 10px;
         }
 
         /* Contact hover effects */
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             cursor: pointer;
             transition: transform 0.18s ease;
         }
@@ -773,15 +775,15 @@
         }
 
         .contact-icon {
-            width: 26px;
-            height: 26px;
+            width: 32px;
+            height: 32px;
             border-radius: 999px;
             background: rgba(15,23,42,0.98);
             border: 1px solid rgba(148, 163, 184, 0.5);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 13px;
+            font-size: 14px;
             transition: all 0.18s ease;
         }
 
@@ -816,7 +818,6 @@
             width: 100%;
         }
 
-        /* NEW: contact actions row */
         .contact-actions {
             display: flex;
             flex-wrap: wrap;
@@ -882,17 +883,9 @@
         }
 
         @keyframes pop {
-            0% {
-                transform: scale(0.5);
-                opacity: 0;
-            }
-            70% {
-                transform: scale(1.1);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(1);
-            }
+            0% { transform: scale(0.5); opacity: 0; }
+            70% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); }
         }
 
         /* Scroll reveal base */
@@ -960,9 +953,7 @@
         }
 
         @media (max-width: 720px) {
-            .floating-resume-btn {
-                display: none; /* hide on small screens */
-            }
+            .floating-resume-btn { display: none; }
         }
 
         /* Resume preview section */
@@ -970,6 +961,7 @@
             display: grid;
             grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
             gap: 16px;
+            align-items: center;
         }
 
         .resume-summary-list {
@@ -978,9 +970,7 @@
             margin-top: 6px;
         }
 
-        .resume-summary-list li {
-            margin-bottom: 4px;
-        }
+        .resume-summary-list li { margin-bottom: 4px; }
 
         .resume-badge {
             display: inline-flex;
@@ -1012,17 +1002,9 @@
 
         /* Responsive */
         @media (max-width: 860px) {
-            .hero {
-                grid-template-columns: 1fr;
-            }
-            .hero-right {
-                justify-content: flex-start;
-            }
-            .grid-2,
-            .contact-wrapper,
-            .resume-preview-grid {
-                grid-template-columns: 1fr;
-            }
+            .hero { grid-template-columns: 1fr; }
+            .hero-right { justify-content: flex-start; }
+            .grid-2, .contact-wrapper, .resume-preview-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 720px) {
@@ -1039,29 +1021,17 @@
                 gap: 10px;
                 min-width: 170px;
             }
-
-            nav ul.open {
-                display: flex;
-            }
-
-            .nav-toggle {
-                display: block;
-            }
+            nav ul.open { display: flex; }
+            .nav-toggle { display: block; }
         }
 
         @media (max-width: 480px) {
-            .wrapper {
-                padding: 0 12px 40px;
-            }
-
-            .profile-card {
-                max-width: 100%;
-            }
+            .wrapper { padding: 0 12px 40px; }
+            .profile-card { max-width: 100%; }
         }
     </style>
 </head>
 <body>
-<!-- floating orbs -->
 <div class="orb orb-1"></div>
 <div class="orb orb-2"></div>
 
@@ -1084,14 +1054,12 @@
     </div>
 </header>
 
-<!-- Floating resume button -->
 <a href="VIVEK-PARMAR-RESUEME.pdf" download class="floating-resume-btn" title="Download Resume">
     <i class="fas fa-file-arrow-down resume-icon"></i>
     Resume
 </a>
 
 <main class="wrapper">
-    <!-- HERO -->
     <section class="hero">
         <div class="reveal visible">
             <div class="hero-intro-badge">
@@ -1101,7 +1069,7 @@
             <h1>Hi, I'm <span>Vivek Parmar</span></h1>
             <p class="hero-subtitle">Android Application Developer</p>
             <p class="hero-text">
-                I build native Android applications using Java, XML, SQLite and Firebase.
+                I build native Android applications using Kotlin, Java, Jetpack Compose, and Firebase.
                 I enjoy designing clean UI, writing structured code and converting ideas into
                 real working apps for everyday use.
             </p>
@@ -1111,7 +1079,6 @@
                     View My Apps <i class="fas fa-arrow-right"></i>
                 </a>
 
-                <!-- Hero resume button -->
                 <a href="VIVEK-PARMAR-RESUEME.pdf" class="btn-primary" download>
                     Download Resume <i class="fas fa-file-arrow-down resume-icon"></i>
                 </a>
@@ -1124,27 +1091,16 @@
             <div class="social-row">
                 <span>Connect with me</span>
                 <div class="social-icons">
-                    <!-- LinkedIn -->
-                    <a href="https://www.linkedin.com/in/parmar-vivek-670139348"
-                       target="_blank" rel="noopener"
-                       class="social-icon" title="LinkedIn">
+                    <a href="https://www.linkedin.com/in/parmar-vivek-670139348" target="_blank" rel="noopener" class="social-icon" title="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <!-- GitHub -->
-                    <a href="https://github.com/parmarvivek1623"
-                       target="_blank" rel="noopener"
-                       class="social-icon" title="GitHub">
+                    <a href="https://github.com/parmarvivek1623" target="_blank" rel="noopener" class="social-icon" title="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
-                    <!-- Email -->
-                    <a href="mailto:vp828227@gmail.com"
-                       class="social-icon" title="Email">
+                    <a href="mailto:vp828227@gmail.com" class="social-icon" title="Email">
                         <i class="far fa-envelope"></i>
                     </a>
-                    <!-- WhatsApp -->
-                    <a href="https://wa.me/917567658495"
-                       target="_blank" rel="noopener"
-                       class="social-icon" title="WhatsApp">
+                    <a href="https://wa.me/917567658495" target="_blank" rel="noopener" class="social-icon" title="WhatsApp">
                         <i class="fab fa-whatsapp"></i>
                     </a>
                 </div>
@@ -1173,9 +1129,9 @@
                     </p>
                     <div class="profile-tags">
                         <span class="tag">Android Studio</span>
-                        <span class="tag">Java + XML</span>
-                        <span class="tag">SQLite / Firebase</span>
-                        <span class="tag">Clean UI</span>
+                        <span class="tag">Kotlin & Java</span>
+                        <span class="tag">Jetpack Compose</span>
+                        <span class="tag">Clean Architecture</span>
                     </div>
                 </div>
                 <div class="profile-footer">
@@ -1196,7 +1152,6 @@
         </div>
     </section>
 
-    <!-- ABOUT -->
     <section id="about" class="reveal">
         <h2 class="section-title">About Me</h2>
         <p class="section-subtitle">Short intro about who I am and what I do.</p>
@@ -1205,7 +1160,7 @@
             <div class="card tilt-card">
                 <div class="card-title">Android Developer & Problem Solver</div>
                 <p>
-                    I am a B.Tech (Information Technology) graduate who loves building performance-optimized Android applications from scratch. I enjoy working on both the UI design and logical systems of applications—from fluid XML layouts to robust Java architectures.
+                    I am a B.Tech (Information Technology) graduate who loves building performance-optimized Android applications from scratch. I enjoy working on both the UI design and logical systems of applications—from fluid XML/Compose layouts to robust native architectures.
                 </p>
                 <p style="margin-top: 6px;">
                     Having successfully built custom production-ready features during my 6-month industry internship, I am looking for full-time opportunities where I can learn from senior developers and contribute to scaling real-world mobile platforms.
@@ -1223,32 +1178,48 @@
                 <div class="what-grid">
                     <div class="what-item">
                         <h4><i class="fas fa-mobile-alt"></i> Android Apps</h4>
-                        <p>Creating native Android apps using Java, XML and Android Studio.</p>
+                        <p>Creating native Android apps using Kotlin, Java, and Android Studio.</p>
                     </div>
                     <div class="what-item">
                         <h4><i class="fas fa-database"></i> App Data & Storage</h4>
-                        <p>Using SQLite, Firebase Realtime Database and SharedPreferences.</p>
+                        <p>Using SQLite, Firebase, Room DB, and SharedPreferences.</p>
                     </div>
                     <div class="what-item">
                         <h4><i class="fas fa-paint-brush"></i> Mobile UI Design</h4>
-                        <p>Designing modern, simple and easy-to-use mobile screens.</p>
+                        <p>Designing modern and scalable screens using Jetpack Compose.</p>
                     </div>
                     <div class="what-item">
-                        <h4><i class="fas fa-flask"></i> Learning & Experiments</h4>
-                        <p>Exploring Flutter, APIs, IoT integration and Linux / shell basics.</p>
+                        <h4><i class="fas fa-network-wired"></i> API & Networking</h4>
+                        <p>Integrating REST APIs using Retrofit and handling asynchronous logic.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SKILLS -->
     <section id="skills" class="reveal">
         <h2 class="section-title">Skills</h2>
         <p class="section-subtitle">Technologies and tools I work with.</p>
 
         <div class="card tilt-card">
             <div class="skills-grid">
+                
+                <div class="skill-card">
+                    <div class="skill-icon">KT</div>
+                    <div class="skill-content">
+                        <div class="skill-title">Kotlin</div>
+                        <div class="skill-text">Modern Android, Coroutines</div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">JC</div>
+                    <div class="skill-content">
+                        <div class="skill-title">Jetpack Compose</div>
+                        <div class="skill-text">Declarative Native UI</div>
+                    </div>
+                </div>
+
                 <div class="skill-card">
                     <div class="skill-icon">AS</div>
                     <div class="skill-content">
@@ -1266,10 +1237,18 @@
                 </div>
 
                 <div class="skill-card">
+                    <div class="skill-icon">API</div>
+                    <div class="skill-content">
+                        <div class="skill-title">Retrofit</div>
+                        <div class="skill-text">REST APIs, Networking</div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
                     <div class="skill-icon">XML</div>
                     <div class="skill-content">
                         <div class="skill-title">XML Layout</div>
-                        <div class="skill-text">ConstraintLayout, RecyclerView, Custom UI</div>
+                        <div class="skill-text">ConstraintLayout, Custom UI</div>
                     </div>
                 </div>
 
@@ -1313,18 +1292,10 @@
                     </div>
                 </div>
 
-                <div class="skill-card">
-                    <div class="skill-icon">UI</div>
-                    <div class="skill-content">
-                        <div class="skill-title">UI / UX</div>
-                        <div class="skill-text">Figma, Wireframing</div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- PROJECTS -->
     <section id="projects" class="reveal">
         <h2 class="section-title">Projects</h2>
         <p class="section-subtitle">Some of my main Android and IoT projects.</p>
@@ -1370,7 +1341,7 @@
                 <div class="project-header">
                     <div>
                         <div class="project-title">Expense Tracker App</div>
-                        <div class="project-tag">Android • Java & SQLite</div>
+                        <div class="project-tag">Android • Local Storage</div>
                     </div>
                 </div>
                 <p>
@@ -1379,8 +1350,8 @@
                 </p>
                 <div class="project-meta-row">
                     <span class="project-pill">RecyclerView</span>
-                    <span class="project-pill">SQLite</span>
-                    <span class="project-pill">MPAndroidChart</span>
+                    <span class="project-pill">SQLite / Room</span>
+                    <span class="project-pill">Data Visualization</span>
                 </div>
             </div>
 
@@ -1434,13 +1405,12 @@
                 <div class="project-meta-row">
                     <span class="project-pill">Google Maps SDK</span>
                     <span class="project-pill">Firebase</span>
-                    <span class="project-pill">RecyclerView</span>
+                    <span class="project-pill">Networking</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- RESUME PREVIEW SECTION -->
     <section id="resume-preview" class="reveal">
         <h2 class="section-title">Resume Overview</h2>
         <p class="section-subtitle">Quick snapshot of my resume. You can download the full PDF below.</p>
@@ -1453,15 +1423,15 @@
                         Android Application Developer
                     </div>
                     <p>
-                        I am a B.Tech (IT) graduate specializing in Android development.
+                        I am a B.Tech (IT) graduate specializing in modern Android development.
                         My resume highlights multiple Android applications (industry + internship),
-                        strong core programming skills (Java, C++), and hands-on work with SQLite,
+                        strong core programming skills (Kotlin, Java), and hands-on work with Jetpack Compose,
                         Firebase, custom launchers, and clean design patterns.
                     </p>
                     <ul class="resume-summary-list">
-                        <li>🎓 <strong>Education:</strong> B.Tech IT, Diploma IT</li>
-                        <li>📱 <strong>Expertise:</strong> Android Studio, Java, XML, SQLite, Launcher Ecosystems</li>
-                        <li>🧠 <strong>Strengths:</strong> Custom UI animations, resource-optimized code, teamwork</li>
+                        <li>🎓 <strong>Education:</strong> B.Tech IT</li>
+                        <li>📱 <strong>Expertise:</strong> Kotlin, Jetpack Compose, Java, Retrofit, Firebase</li>
+                        <li>🧠 <strong>Strengths:</strong> Modern UI paradigms, resource-optimized code, teamwork</li>
                         <li>🚀 <strong>Looking for:</strong> Android / Mobile App Developer Full-time Roles</li>
                     </ul>
                 </div>
@@ -1479,7 +1449,6 @@
         </div>
     </section>
 
-    <!-- RESUME / EDUCATION + EXPERIENCE -->
     <section id="resume" class="reveal">
         <h2 class="section-title">Education & Experience</h2>
         <p class="section-subtitle">Academic background and internship experience.</p>
@@ -1502,29 +1471,6 @@
                             </p>
                         </div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-marker"><div></div></div>
-                        <div class="timeline-content">
-                            <div class="timeline-title">Diploma in Information Technology</div>
-                            <div class="timeline-meta">
-                                IPCOWALA Institute of Engineering and Technology<br />
-                                Tech Fest • Tech Quiz • Debate
-                            </div>
-                            <p>
-                                Built strong fundamentals in programming logic, computer networking, and core software engineering practices.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-marker"><div></div></div>
-                        <div class="timeline-content">
-                            <div class="timeline-title">HSC • Arts</div>
-                            <div class="timeline-meta">
-                                St. Xavier's Higher Secondary School
-                            </div>
-                            <p>From General Stream, Arts.</p>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -1536,8 +1482,7 @@
                         <div class="timeline-content">
                             <div class="timeline-title">Android Developer Intern (6 Months)</div>
                             <div class="timeline-meta">
-                                UNIKWORK SYSTEM LLP<br />
-                                6-Month Tenure
+                                UNIKWORK SYSTEM LLP
                             </div>
                             <p>
                                 Engineered the <strong>Void: Minimalist Launcher</strong> app from the ground up using Java and XML layouts. Implemented high-performance home-intercept scripts, system interaction layers, and sleek custom view animations while managing strict memory constraints.
@@ -1569,7 +1514,7 @@
                             <p>
                                 Android Application Developer Intern, Java Programming for Beginners,
                                 Android Application Development, Programming in C++, Computer & Programming,
-                                Introduction to Linux Command & Shell Scripting, CCC.
+                                Introduction to Linux Command & Shell Scripting.
                             </p>
                         </div>
                     </div>
@@ -1578,14 +1523,12 @@
         </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact" class="reveal">
         <h2 class="section-title">Contact</h2>
-        <p class="section-subtitle">Let’s discuss internships, fresher roles or app ideas.</p>
+        <p class="section-subtitle">Let’s discuss opportunities or app ideas.</p>
 
         <div class="contact-wrapper">
             <div class="card tilt-card">
-                <!-- NEW contact form with JS + Google Sheet + WhatsApp -->
                 <form id="contact-form">
                     <div>
                         <label for="name">Name</label>
@@ -1597,7 +1540,7 @@
                     </div>
                     <div>
                         <label for="subject">Subject</label>
-                        <input id="subject" name="subject" type="text" placeholder="Internship / Job / Project" required />
+                        <input id="subject" name="subject" type="text" placeholder="Job / Project / Inquiry" required />
                     </div>
                     <div>
                         <label for="message">Message</label>
@@ -1621,7 +1564,7 @@
             <div class="card contact-info tilt-card">
                 <div class="card-title">Let’s Connect</div>
                 <p>
-                    I am open to Android / Mobile App Development internships and fresher roles.
+                    I am open to Android / Mobile App Development full-time roles.
                     If you think I can add value to your team or project, feel free to reach out
                     using any of the options below.
                 </p>
@@ -1680,7 +1623,6 @@
             </div>
         </div>
 
-        <!-- Toast + Success overlay HTML -->
         <div id="toast"></div>
 
         <div id="success-overlay">
@@ -1782,10 +1724,7 @@
     // CONTACT FORM + GOOGLE SHEET + TOAST + WHATSAPP
     // ===============================
 
-    // 🔗 Your Google Apps Script Web App URL (from Google Sheet → Apps Script → Deploy)
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzQB6GLCGxLyTzf0bHTQ4zStTqAdzq9MIbLatEke02vwtMdvxQRTEYZm2BvwW-6-JNY/exec"; // TODO: replace with your real URL
-
-    // 🔗 Your WhatsApp number with country code (no +)
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzQB6GLCGxLyTzf0bHTQ4zStTqAdzq9MIbLatEke02vwtMdvxQRTEYZm2BvwW-6-JNY/exec";
     const WHATSAPP_NUMBER = "+917567658495";
 
     const contactForm = document.getElementById("contact-form");
@@ -1815,7 +1754,6 @@
         contactForm.addEventListener("submit", function (e) {
             e.preventDefault();
 
-            // Disable button while sending
             sendBtn.disabled = true;
             const oldText = sendBtn.textContent;
             sendBtn.textContent = "Sending...";
@@ -1830,7 +1768,7 @@
                     try {
                         return res.json();
                     } catch (e) {
-                        return { status: "success" }; // fallback
+                        return { status: "success" };
                     }
                 })
                 .then((data) => {
@@ -1853,7 +1791,6 @@
         });
     }
 
-    // WhatsApp auto-message from form data
     if (whatsappBtn) {
         whatsappBtn.addEventListener("click", function () {
             const name = document.getElementById("name")?.value || "";
